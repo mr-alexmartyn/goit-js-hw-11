@@ -22,12 +22,12 @@ export default class PixabayService {
           this.incrementPage();
           const totalHits = data.totalHits;
           this.totalHits = totalHits;
-          Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
+          Notiflix.Notify.success(`Great! We found ${totalHits} images.`);
           return data.hits;
         }
 
         Notiflix.Notify.failure(
-          'Sorry, there are no images matching your search query. Please try again.'
+          'Sorry, there are no images matching your search query.'
         );
         return [];
       });
