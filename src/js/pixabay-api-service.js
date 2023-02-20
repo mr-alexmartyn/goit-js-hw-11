@@ -1,4 +1,5 @@
 import Notiflix from 'notiflix';
+import axios from 'axios';
 
 const KEY = '33720953-38973eb019ef56a89920c91f5';
 const PIXABAY_URL = 'https://pixabay.com/api/';
@@ -9,10 +10,11 @@ export default class PixabayService {
     this.page = 1;
   }
 
-  fetchImages() {
+  async fetchImages() {
     const url = `${PIXABAY_URL}?key=${KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=false&per_page=${this.per_page}&page=${this.page}`;
 
-    return fetch(url)
+    return await axios
+      .get(url)
       .then(response => {
         if (response.ok) return response.json();
         throw new Error();
