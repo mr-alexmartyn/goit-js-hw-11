@@ -16,9 +16,12 @@ export default class PixabayService {
     return await axios
       .get(url)
       .then(response => {
-        if (response.ok) return response.json();
-        throw new Error();
+        if (response.failure) {
+          throw new Error(response.status);
+        }
+        return response.data;
       })
+
       .then(data => {
         if (data.hits.length > 0) {
           this.incrementPage();

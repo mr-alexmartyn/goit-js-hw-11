@@ -1,8 +1,8 @@
-export default function createCard(hit) { 
-    
-    const { webformatURL, largeImageURL, likes, views, comments, downloads, id } = hit;
-    
-    return `<a class="gallery-item" href="${largeImageURL}">
+export default function createCard(response) {
+  const { webformatURL, largeImageURL, likes, views, comments, downloads, id } =
+    response;
+
+  return `<a class="gallery-item" href="${largeImageURL}">
             <div class="photo-card">
                 <img class = "card-image" src="${webformatURL}" alt="${id}" loading="lazy"/>
                 <div class="info">
@@ -24,5 +24,5 @@ export default function createCard(hit) {
                     </p>
                 </div>
             </div>
-        </a>`
-} 
+        </a>`;
+}
