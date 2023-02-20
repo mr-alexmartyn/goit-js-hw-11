@@ -26,7 +26,6 @@ export default class PixabayService {
         if (data.hits.length > 0) {
           this.incrementPage();
           const totalHits = data.totalHits;
-          this.totalHits = totalHits;
           Notiflix.Notify.success(`Great! We found ${totalHits} images.`);
           return data.hits;
         }
